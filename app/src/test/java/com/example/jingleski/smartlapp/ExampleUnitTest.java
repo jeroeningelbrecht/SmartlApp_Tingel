@@ -1,8 +1,8 @@
 package com.example.jingleski.smartlapp;
 
+import org.junit.Assert;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
+import com.example.jingleski.midtier.operations.*;
 
 /**
  * Example local unit test, which will execute on the development machine (host).
@@ -12,6 +12,30 @@ import static org.junit.Assert.*;
 public class ExampleUnitTest {
     @Test
     public void addition_isCorrect() throws Exception {
-        assertEquals(4, 2 + 2);
+        Operation add1 = new Addition();
+        Assert.assertTrue(add1.process(new int[]{1,2}, 3));
     }
+
+    @Test
+    public void addition_isWrong() throws Exception{
+        Operation add2 = new Addition();
+        Assert.assertFalse(add2.process(new int[]{1,3}, 3));
+    }
+
+    @Test
+    public void subtraction_isCorrect() throws Exception {
+        Operation sub1 = new Subtraction();
+        Assert.assertTrue(sub1.process(new int[]{7,5,1}, 1));
+    }
+
+    @Test
+    public void subtraction_isWrong() throws Exception{
+        Operation sub2 = new Subtraction();
+        Assert.assertFalse(sub2.process(new int[]{7,5,2},1));
+    }
+
+
+	//    System.out.println(OperationResponder.handleResponse("+"));
+	//    System.out.println(OperationResponder.handleResponse("-"));
+
 }
