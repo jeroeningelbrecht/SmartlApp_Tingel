@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">SmartlApp</string>
+    <string name="start_Laura">Laura</string>
+    <string name="start_Riene">Riene</string>
+    <string name="start_Marie">Marie</string>
+    <string name="start_Admin">Admin</string>
+    <string name="start_Schatkist">Schatkist</string>
+    <string name="addition">+</string>
+    <string name="subtraction">-</string>
+    <string name="split">splitsen</string>
+    <string name="empty"></string>
+    <string name="schatkist">woehoew</string>
+    <string name="admin">we are the masters</string>
+    <string name="equals">=</string>
+    <string name="result">...</string>
+    <string name="under_construction">under construction</string>
+    <string name="validate_result">GO!</string>
+
+</resources>

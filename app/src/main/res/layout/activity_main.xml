@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.jingleski.smartlapp.MainActivity">
+
+    <Button
+        android:id="@+id/startLaura"
+        android:layout_width="88dp"
+        android:layout_height="48dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:onClick="sendMessageLaura"
+        android:text="@string/start_Laura"
+        app:layout_constraintBaseline_toBaselineOf="@+id/startRiene"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <Button
+        android:id="@+id/startRiene"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:onClick="sendMessageRiene"
+        android:text="@string/start_Riene"
+        app:layout_constraintBaseline_toBaselineOf="@+id/startMarie"
+        app:layout_constraintHorizontal_bias="0.525"
+        app:layout_constraintLeft_toRightOf="@+id/startLaura"
+        app:layout_constraintRight_toLeftOf="@+id/startMarie" />
+
+    <Button
+        android:id="@+id/startMarie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="20dp"
+        android:onClick="sendMessageMarie"
+        android:text="@string/start_Marie"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/startSchatkist"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginStart="32dp"
+        android:onClick="sendMessageSchatkist"
+        android:text="@string/start_Schatkist"
+        app:layout_constraintBaseline_toBaselineOf="@+id/startAdmin"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/startAdmin" />
+
+    <Button
+        android:id="@+id/startAdmin"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:onClick="sendMessageAdmin"
+        android:text="@string/start_Admin"
+        app:layout_constraintLeft_toRightOf="@+id/startSchatkist"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/startMarie" />
+
+</android.support.constraint.ConstraintLayout>
