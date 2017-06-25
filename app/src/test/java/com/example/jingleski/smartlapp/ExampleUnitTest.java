@@ -34,8 +34,9 @@ public class ExampleUnitTest {
         Assert.assertFalse(sub2.process(new int[]{7,5,2},1));
     }
 
-
-	//    System.out.println(OperationResponder.handleResponse("+"));
-	//    System.out.println(OperationResponder.handleResponse("-"));
+    @Test
+    public void SplitTest() throws Exception{
+        SplitResponder.handleResponse("+");
+    }
 
 }
