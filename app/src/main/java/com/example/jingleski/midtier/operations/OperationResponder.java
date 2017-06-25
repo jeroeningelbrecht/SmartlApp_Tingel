@@ -86,7 +86,7 @@ public class OperationResponder {
         int updatedSequenceNumber = ++sequenceNumber;
         
         /* last sequence?  Finished? */
-        boolean finishIc = updatedSequenceNumber < Configuration.MAX_SEQUENCES_PER_EXERCISE;
+        boolean finishIc = updatedSequenceNumber > Configuration.MAX_SEQUENCES_PER_EXERCISE;
         
         /* new factors */
         int[] factors = getOperationNumbers(operationIdentifier);     
