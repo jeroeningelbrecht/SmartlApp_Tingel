@@ -1,11 +1,17 @@
 package com.example.jingleski.smartlapp;
 
+import android.content.Context;
 import android.content.Intent;
+import android.opengl.EGLConfig;
+import android.opengl.GLES20;
+import android.opengl.GLSurfaceView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,11 +20,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
+
     /** Called when the user taps the Laura button */
     public void sendMessageLaura(View view) {
         Intent intent = new Intent(this, StartChildActivity.class);
         Button startLaura = (Button) findViewById(R.id.startLaura);
-        String message = startLaura.getText().toString();
+        String message = startLaura.getContentDescription().toString();
         MyApplication application = (MyApplication) this.getApplication();
         application.setChildName(message);
         startActivity(intent);
@@ -28,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
     public void sendMessageRiene(View view) {
         Intent intent = new Intent(this, StartChildActivity.class);
         Button startRiene = (Button) findViewById(R.id.startRiene);
-        String message = startRiene.getText().toString();
+        String message = startRiene.getContentDescription().toString();
         MyApplication application = (MyApplication) this.getApplication();
         application.setChildName(message);
         startActivity(intent);
@@ -37,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
     public void sendMessageMarie(View view) {
         Intent intent = new Intent(this, StartChildActivity.class);
         Button startMarie = (Button) findViewById(R.id.startMarie);
-        String message = startMarie.getText().toString();
+        String message = startMarie.getContentDescription().toString();
         MyApplication application = (MyApplication) this.getApplication();
         application.setChildName(message);
         startActivity(intent);

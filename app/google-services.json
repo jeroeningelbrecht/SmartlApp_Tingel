@@ -1,0 +1,50 @@
+{
+  "project_info": {
+    "project_number": "717814102404",
+    "firebase_url": "https://smartlapp-173023.firebaseio.com",
+    "project_id": "smartlapp-173023",
+    "storage_bucket": "smartlapp-173023.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:717814102404:android:ae2e68d42a85edcd",
+        "android_client_info": {
+          "package_name": "com.example.jingleski.smartlapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "717814102404-gmp3mnhi8omv6iqnmtm9bsg612lh2eia.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "717814102404-6vv422tup8is0rim58bpe012qdrc1llp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.jingleski.smartlapp",
+            "certificate_hash": "bef273464af827716f00f97fdf8e0c788256392c"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDyvPFdWK_DbPAnHd0FHPJjMRAS2iwLMFA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

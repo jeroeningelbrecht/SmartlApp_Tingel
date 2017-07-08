@@ -15,5 +15,8 @@
     <string name="result">...</string>
     <string name="under_construction">under construction</string>
     <string name="validate_result">GO!</string>
+    <string name="ok">OK</string>
+    <string name="klaar">KLAAR!!!</string>
+    <string name="paswoord">Paswoord</string>
 
 </resources>

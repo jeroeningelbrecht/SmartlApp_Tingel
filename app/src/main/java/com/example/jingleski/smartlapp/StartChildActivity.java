@@ -8,14 +8,12 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class StartChildActivity extends AppCompatActivity {
-    public static final String SIGN = "com.example.jingleski.smartlapp.SIGN";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_child);
-        // Get the Intent that started this activity and extract the string
-        Intent intent = getIntent();
+
         MyApplication application = (MyApplication)this.getApplication();
         String message = application.getChildName();
 
@@ -23,14 +21,19 @@ public class StartChildActivity extends AppCompatActivity {
         TextView textView = (TextView) findViewById(R.id.act_start_child_textView);
         textView.setText(message);
 
+        //initialise response for each child
+        application.setResponse(null);
+
     }
 
     /** Called when the user taps the addition button */
     public void sendMessageAddition(View view) {
         Intent intent = new Intent(this, CountActivity.class);
         Button addition = (Button) findViewById(R.id.addition);
-        String message = addition.getText().toString();
-        intent.putExtra(SIGN, message);
+        String sign = addition.getContentDescription().toString();
+
+        MyApplication application = (MyApplication)this.getApplication();
+        application.setSign(sign);
         startActivity(intent);
     }
 
@@ -38,8 +41,9 @@ public class StartChildActivity extends AppCompatActivity {
     public void sendMessageSubtraction(View view) {
         Intent intent = new Intent(this, CountActivity.class);
         Button subtraction = (Button) findViewById(R.id.subtraction);
-        String message = subtraction.getText().toString();
-        intent.putExtra(SIGN,message);
+        String sign = subtraction.getContentDescription().toString();
+        MyApplication application = (MyApplication)this.getApplication();
+        application.setSign(sign);
         startActivity(intent);
     }
 

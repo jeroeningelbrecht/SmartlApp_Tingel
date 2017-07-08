@@ -4,67 +4,91 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.jingleski.smartlapp.MainActivity">
+    android:background="@drawable/kasteel"
+    tools:context="com.example.jingleski.smartlapp.MainActivity"
+    tools:layout_editor_absoluteY="81dp"
+    tools:layout_editor_absoluteX="0dp">
 
     <Button
         android:id="@+id/startLaura"
-        android:layout_width="88dp"
-        android:layout_height="48dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
+        android:layout_width="66dp"
+        android:layout_height="66dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="380dp"
+        android:background="@drawable/laura"
+        android:contentDescription="@string/start_Laura"
         android:onClick="sendMessageLaura"
-        android:text="@string/start_Laura"
-        app:layout_constraintBaseline_toBaselineOf="@+id/startRiene"
-        app:layout_constraintLeft_toLeftOf="parent" />
-
+        app:layout_constraintRight_toLeftOf="@+id/startRiene"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_editor_absoluteX="50dp"
+        app:layout_editor_absoluteY="50dp"
+        android:layout_marginLeft="60dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/schatkist"
+        app:layout_constraintVertical_bias="0.214" />
     <Button
         android:id="@+id/startRiene"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_width="46dp"
+        android:layout_height="66dp"
+        android:background="@drawable/riene"
         android:onClick="sendMessageRiene"
-        android:text="@string/start_Riene"
-        app:layout_constraintBaseline_toBaselineOf="@+id/startMarie"
-        app:layout_constraintHorizontal_bias="0.525"
-        app:layout_constraintLeft_toRightOf="@+id/startLaura"
-        app:layout_constraintRight_toLeftOf="@+id/startMarie" />
-
-    <Button
-        android:id="@+id/startMarie"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="390dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
         android:layout_marginRight="16dp"
-        android:layout_marginTop="20dp"
-        android:onClick="sendMessageMarie"
-        android:text="@string/start_Marie"
-        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginEnd="16dp"
+        android:contentDescription="@string/start_Riene"
+        app:layout_constraintLeft_toRightOf="@+id/startLaura"
+        app:layout_constraintRight_toLeftOf="@+id/startMarie"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/startSchatkist"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginStart="32dp"
+        android:id="@+id/startMarie"
+        android:layout_width="66dp"
+        android:layout_height="66dp"
+        android:onClick="sendMessageMarie"
+        android:background="@drawable/marie"
+        android:contentDescription="@string/start_Marie"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/startRiene"
+        app:layout_constraintRight_toLeftOf="parent"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="380dp"
+        android:layout_marginRight="100dp"
+        android:layout_marginEnd="64dp"/>
+
+    <Button
+        android:id="@+id/startAdmin"
+        android:layout_width="88dp"
+        android:layout_height="58dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginStart="200dp"
+        android:layout_marginLeft="200dp"
+        android:onClick="sendMessageAdmin"
+        android:background="@drawable/admin"
+        app:layout_constraintLeft_toRightOf="@+id/schatkist"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="8dp" />
+
+    <Button
+        android:id="@+id/schatkist"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="24dp"
+        android:layout_marginStart="24dp"
+        android:background="@drawable/schatkist"
         android:onClick="sendMessageSchatkist"
-        android:text="@string/start_Schatkist"
+        android:visibility="gone"
         app:layout_constraintBaseline_toBaselineOf="@+id/startAdmin"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/startAdmin" />
 
-    <Button
-        android:id="@+id/startAdmin"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
-        android:onClick="sendMessageAdmin"
-        android:text="@string/start_Admin"
-        app:layout_constraintLeft_toRightOf="@+id/startSchatkist"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/startMarie" />
 
 </android.support.constraint.ConstraintLayout>
