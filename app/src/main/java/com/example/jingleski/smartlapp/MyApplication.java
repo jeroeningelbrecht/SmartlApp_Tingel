@@ -137,7 +137,8 @@ public class MyApplication extends Application {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     FirebaseUser user = firebaseAuth.getCurrentUser();
-                    Toast.makeText(context, "Firebase authentication successful for user " + user.getDisplayName(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Firebase authentication successful for user " + user.getDisplayName()+ ";" +user.getUid(), Toast.LENGTH_SHORT).show();
+                    readData(context);
                 } else {
                     Toast.makeText(context, "Firebase authentication failed", Toast.LENGTH_SHORT).show();
                 }

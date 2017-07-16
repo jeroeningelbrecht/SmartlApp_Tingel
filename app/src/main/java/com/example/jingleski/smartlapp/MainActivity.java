@@ -44,15 +44,17 @@ public class MainActivity extends AppCompatActivity {
         if( !((MyApplication)this.getApplication()).isFirebaseConnection() ) {
             Intent signInIntent = ((MyApplication) this.getApplication()).getSignInIntent();
             startActivityForResult(signInIntent, MyApplication.RC_SIGN_IN);
+        } else {
+            ((MyApplication)this.getApplication()).readData(this);
         }
-        ((MyApplication)this.getApplication()).readData(this);
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        MyApplication application = (MyApplication)this.getApplication();
         if(requestCode==MyApplication.RC_SIGN_IN) {
-            ((MyApplication)this.getApplication()).handleSignInResult(this, data);
+            application.handleSignInResult(this, data);
         }
     }
 
