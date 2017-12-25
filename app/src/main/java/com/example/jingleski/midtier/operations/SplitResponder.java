@@ -4,6 +4,7 @@ import java.util.Random;
 
 import com.example.jingleski.midtier.configuration.Configuration;
 
+//TODO: SplitResponder is the same  thing as OperationResponder => reuse code!!!!
 public class SplitResponder{
     
     /**
@@ -44,9 +45,50 @@ public class SplitResponder{
      * @param operationIdentifier: identifies the operation: e.g. "+" for addition and "-" for subtraction
      */
     public static OperationResponse handleResponse(String operationIdentifier) {
+        int updatedSequenceNumber = 0;
+        int[] factors = getOperationNumbers(operationIdentifier);
         
-        
-        return new SplitResponse(0,new int[]{0,0},false,false);
+        return new SplitResponse(updatedSequenceNumber,factors,false,false);
+    }
+
+    /**
+     *
+     * @param operationIdentifier
+     * @param sequenceNumber
+     * @param x
+     * @param y
+     * @param solution
+     * @return
+     */
+    public static OperationResponse handleResponse(String operationIdentifier, int sequenceNumber, int x, int y, int solution){
+        /* result operation ok? */
+        Operation operation;
+
+        switch(operationIdentifier) {
+            case(Configuration.PLUS_SIGN):
+                operation = new Addition();
+                break;
+
+            case(Configuration.MINUS_SIGN):
+                operation = new Subtraction();
+                break;
+
+            default: operation = new Addition();
+        }
+
+        boolean resultOkIc = operation.process(new int[]{x,y}, solution);
+
+        /* new sequenceNumber */
+        int updatedSequenceNumber = ++sequenceNumber;
+
+        /* last sequence?  Finished? */
+        boolean finishIc = updatedSequenceNumber >= Configuration.MAX_SEQUENCES_PER_EXERCISE;
+
+        /* new factors */
+        int[] factors = getOperationNumbers(operationIdentifier);
+
+        /* return new OperationResponse*/
+        return new OperationResponse(updatedSequenceNumber, factors, resultOkIc, finishIc);
     }
     
 }

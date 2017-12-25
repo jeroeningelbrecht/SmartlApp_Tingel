@@ -18,5 +18,8 @@
     <string name="ok">OK</string>
     <string name="klaar">KLAAR!!!</string>
     <string name="paswoord">Paswoord</string>
+    <string name="plusteken"> + -------- </string>
+    <string name="line1">/</string>
+    <string name="line2">\\</string>
 
 </resources>

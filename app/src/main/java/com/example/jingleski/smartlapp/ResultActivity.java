@@ -37,7 +37,7 @@ public class ResultActivity extends AppCompatActivity
         super.onStart();
         MyApplication application = (MyApplication)this.getApplication();
         MyApplication.Child currentChild = ((MyApplication) this.getApplication()).getCurrentChild();
-        application.updateChildPoints(currentChild, 10);
+        application.updateChildPoints(currentChild, 1);
     }
 
     /** Called when the user taps the ok button */

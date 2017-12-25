@@ -93,6 +93,16 @@ public class MyApplication extends Application {
 
     public int getResult() { return result; }
 
+    /**
+     * Get the points of one child
+     * For instance: getChildPoints(Child.MARIE) gives you the points of Marie
+     * @param child MyApplication.Child object e.g.: MyApplication.Child.MARIE
+     * @return the points of that particular child
+     */
+    public int getChildPoints(Child child){
+        return this.childrenPoints.get(child);
+    }
+
     public boolean initGoogleAndFirebaseConnection(FragmentActivity activity, Context context){
         googleApiClient = GoogleInteraction.getGoogleApiClient(activity, context);
         firebaseAuth = FirebaseAuth.getInstance();
@@ -156,7 +166,7 @@ public class MyApplication extends Application {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 int points = dataSnapshot.getValue(Integer.class);
                 setChildPoints(child, points);
-                Toast.makeText(context, child.getName() +"s points: " + points, Toast.LENGTH_SHORT).show();
+              //  Toast.makeText(context, child.getName() +"s points: " + points, Toast.LENGTH_SHORT).show();
             }
 
             @Override

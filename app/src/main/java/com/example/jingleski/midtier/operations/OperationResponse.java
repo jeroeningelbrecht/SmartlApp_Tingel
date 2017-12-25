@@ -42,8 +42,7 @@ public class OperationResponse {
         representation += " - factors: " + Arrays.toString(this.factors);
         representation += " - result ok?: " + this.resultOkIc;
         representation += " - finished?: " + this.finishIc;
-        
-        
+
         return representation;
     }
     

@@ -4,7 +4,110 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/wip"
+    android:background="@drawable/countbackground"
     tools:context="com.example.jingleski.smartlapp.SplitActivity">
+
+    <TextView
+        android:id="@+id/splitnumber1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="3"
+        android:textSize="40sp"
+        android:textColor="@android:color/holo_blue_bright"
+        android:background="@android:color/background_light"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/line1"
+        android:layout_marginTop="16dp" />
+
+    <TextView
+        android:id="@+id/line1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/line1"
+        android:textSize="40sp"
+        android:textColor="@android:color/holo_blue_bright"
+        android:background="@android:color/background_light"
+        app:layout_constraintLeft_toRightOf="@+id/splitnumber2"
+        app:layout_constraintRight_toLeftOf="@+id/splitnumber1"
+        app:layout_constraintTop_toBottomOf="@+id/splitnumber1"
+        app:layout_constraintBottom_toTopOf="@+id/go"/>
+
+    <TextView
+        android:id="@+id/line2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/line2"
+        android:textSize="40sp"
+        android:textColor="@android:color/holo_blue_bright"
+        android:background="@android:color/background_light"
+        app:layout_constraintLeft_toRightOf="@+id/splitnumber1"
+        app:layout_constraintRight_toLeftOf="@+id/splitresult"
+        app:layout_constraintTop_toBottomOf="@+id/splitnumber1"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/line1" />
+
+    <TextView
+        android:id="@+id/splitnumber2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2"
+        android:textSize="40sp"
+        android:textColor="@android:color/holo_blue_bright"
+        android:background="@android:color/background_light"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/line1"
+        app:layout_constraintRight_toLeftOf="@+id/line1"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/splitresult" />
+
+    <EditText
+        android:id="@+id/splitresult"
+        android:layout_width="56dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number"
+        android:text="@string/empty"
+        android:textColor="@android:color/holo_blue_bright"
+        android:background="@android:color/background_light"
+        android:textSize="40sp"
+        app:layout_constraintLeft_toRightOf="@+id/line2"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/line2"
+        app:layout_constraintBottom_toTopOf="@+id/go"
+        tools:layout_editor_absoluteY="6dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintVertical_bias="0.4" />
+
+    <Button
+        android:id="@+id/go"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_blue_bright"
+        android:fontFamily="casual"
+        android:onClick="sendMessageResult"
+        android:text="@string/validate_result"
+        android:textColor="@android:color/white"
+        android:textSize="72sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/splitnumber2"
+        app:layout_constraintBottom_toTopOf="@+id/resultImg" />
+
+    <ImageView
+        android:id="@+id/resultImg"
+        android:layout_width="339dp"
+        android:layout_height="221dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/go"
+        app:layout_constraintVertical_bias="0.631"
+        app:layout_constraintHorizontal_bias="0.507"
+        tools:layout_editor_absoluteY="381dp" />
+
+
 
 </android.support.constraint.ConstraintLayout>

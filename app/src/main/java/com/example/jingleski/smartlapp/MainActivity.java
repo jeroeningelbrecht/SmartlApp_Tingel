@@ -61,8 +61,8 @@ public class MainActivity extends AppCompatActivity {
     /** Called when the user taps the Laura button */
     public void sendMessageLaura(View view) {
         Intent intent = new Intent(this, StartChildActivity.class);
-        Button startLaura = (Button) findViewById(R.id.startLaura);
-        String message = startLaura.getContentDescription().toString();
+     //   Button startLaura = (Button) findViewById(R.id.startLaura);
+     //   String message = startLaura.getContentDescription().toString();
         MyApplication application = (MyApplication) this.getApplication();
         application.setChild((MyApplication.Child.LAURA));
         startActivity(intent);
@@ -71,8 +71,8 @@ public class MainActivity extends AppCompatActivity {
     /** Called when the user taps the Riene button */
     public void sendMessageRiene(View view) {
         Intent intent = new Intent(this, StartChildActivity.class);
-        Button startRiene = (Button) findViewById(R.id.startRiene);
-        String message = startRiene.getContentDescription().toString();
+     //   Button startRiene = (Button) findViewById(R.id.startRiene);
+     //   String message = startRiene.getContentDescription().toString();
         MyApplication application = (MyApplication) this.getApplication();
         application.setChild(MyApplication.Child.RIENE);
         startActivity(intent);
@@ -80,8 +80,8 @@ public class MainActivity extends AppCompatActivity {
     /** Called when the user taps the Marie button */
     public void sendMessageMarie(View view) {
         Intent intent = new Intent(this, StartChildActivity.class);
-        Button startMarie = (Button) findViewById(R.id.startMarie);
-        String message = startMarie.getContentDescription().toString();
+     //   Button startMarie = (Button) findViewById(R.id.startMarie);
+    //    String message = startMarie.getContentDescription().toString();
         MyApplication application = (MyApplication) this.getApplication();
         application.setChild(MyApplication.Child.MARIE);
         startActivity(intent);

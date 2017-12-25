@@ -5,7 +5,7 @@ public class Configuration {
     /**
      * for example max 10 sequences per addition exercise
      */
-    public static final int MAX_SEQUENCES_PER_EXERCISE = 1;
+    public static final int MAX_SEQUENCES_PER_EXERCISE = 10;
     
     /**
      * What is the max number for additions?  E.g.: 20

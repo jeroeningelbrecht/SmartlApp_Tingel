@@ -45,14 +45,11 @@ public class CountActivity extends AppCompatActivity {
             OperationResponse responseNew =
                     OperationResponder.handleResponse(sign,sequenceNumber,a,b,result);
 
-         //   boolean prevResultOkIc = application.getPrevResultOkIc();
-
             if (responseNew.isResultOkIc()) {
                 ImageView imageView = (ImageView) findViewById(R.id.resultImg);
                 imageView.setImageResource(R.drawable.good);
 
                 application.setResponse(responseNew);
-              //  application.setPrevResultOkIc(responseNew.isResultOkIc());
 
             }
             else {

@@ -36,7 +36,9 @@ public class ExampleUnitTest {
 
     @Test
     public void SplitTest() throws Exception{
-        SplitResponder.handleResponse("+");
+        for(int i=0;i<10;i++) {
+            System.out.println(SplitResponder.handleResponse("+"));
+        }
     }
 
 }

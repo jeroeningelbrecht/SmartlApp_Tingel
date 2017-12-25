@@ -4,20 +4,218 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/schatkamer"
     tools:context="com.example.jingleski.smartlapp.StartSchatkistActivity">
 
+    <Button
+        android:id="@+id/rieneSchatkamer"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/riene"
+        android:onClick="sendMessageRiene"
+        app:layout_constraintBottom_toTopOf="@+id/lauraSchatkamer"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/rienePunten"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/lauraSchatkamer"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/laura"
+        android:onClick="sendMessageLaura"
+        app:layout_constraintBottom_toTopOf="@+id/marieSchatkamer"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/lauraPunten"
+        app:layout_constraintTop_toBottomOf="@+id/rieneSchatkamer" />
+
+    <Button
+        android:id="@+id/marieSchatkamer"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/marie"
+        android:onClick="sendMessageMarie"
+        app:layout_constraintBottom_toTopOf="@+id/plusteken"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/mariePunten"
+        app:layout_constraintTop_toBottomOf="@+id/lauraSchatkamer" />
+
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/rienePunten"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/holo_blue_light"
+        android:ems="10"
+        android:fontFamily="casual"
+        android:textAlignment="center"
+        android:textColor="@color/colorAccent"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/lauraPunten"
+        app:layout_constraintLeft_toRightOf="@+id/rieneSchatkamer"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/lauraPunten"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_blue_light"
+        android:ems="10"
+        android:fontFamily="casual"
+        android:textAlignment="center"
+        android:textColor="@color/colorAccent"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/mariePunten"
+        app:layout_constraintLeft_toRightOf="@+id/lauraSchatkamer"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rienePunten" />
+
+    <TextView
+        android:id="@+id/mariePunten"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_blue_light"
+        android:ems="10"
+        android:fontFamily="casual"
+        android:textAlignment="center"
+        android:textColor="@color/colorAccent"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/plusteken"
+        app:layout_constraintLeft_toRightOf="@+id/marieSchatkamer"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lauraPunten" />
+
+    <TextView
+        android:id="@+id/plusteken"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/schatkist"
-        android:textSize="36sp"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="16dp"
-        android:layout_marginLeft="16dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginRight="16dp"
+        android:background="@android:color/holo_blue_light"
+        android:fontFamily="casual"
+        android:text="@string/plusteken"
+        android:textAlignment="center"
+        android:textColor="@color/colorAccent"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/totaalPunten"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintLeft_toRightOf="@+id/marieSchatkamer"
         app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mariePunten" />
+
+    <TextView
+        android:id="@+id/totaalPunten"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_blue_light"
+        android:ems="10"
+        android:fontFamily="casual"
+        android:textAlignment="center"
+        android:textColor="@color/colorAccent"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/film"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintLeft_toRightOf="@+id/marieSchatkamer"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/plusteken" />
+
+    <ImageView
+        android:id="@+id/speeltuin"
+        android:layout_width="100dp"
+        android:layout_height="89dp"
+        app:srcCompat="@drawable/speeltuin"
+        app:layout_constraintTop_toBottomOf="@+id/totaalPunten"
+        app:layout_constraintBottom_toTopOf="@+id/speeltuinProgress"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/film" />
+
+    <ImageView
+        android:id="@+id/film"
+        android:layout_width="100dp"
+        android:layout_height="89dp"
+        app:srcCompat="@drawable/film"
+        app:layout_constraintTop_toBottomOf="@+id/totaalPunten"
+        app:layout_constraintBottom_toTopOf="@+id/filmProgress"
+        app:layout_constraintLeft_toRightOf="@+id/speeltuin"
+        app:layout_constraintRight_toLeftOf="@+id/zee" />
+
+    <ImageView
+        android:id="@+id/zee"
+        android:layout_width="100dp"
+        android:layout_height="89dp"
+        app:layout_constraintBottom_toTopOf="@+id/zeeProgress"
+        app:layout_constraintLeft_toRightOf="@+id/film"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/totaalPunten"
+        app:srcCompat="@drawable/strand" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@android:color/holo_blue_light"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="16dp" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/zee"
+        app:layout_constraintVertical_bias="0.416"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintHorizontal_bias="0.0"></LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/speeltuinProgress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="85dp"
+        android:layout_height="65dp"
+        android:max="10"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/filmProgress"
+        app:layout_constraintTop_toBottomOf="@+id/speeltuin" />
+
+    <ProgressBar
+        android:id="@+id/filmProgress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="85dp"
+        android:layout_height="65dp"
+        android:max="15"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/speeltuinProgress"
+        app:layout_constraintRight_toLeftOf="@+id/zeeProgress"
+        app:layout_constraintTop_toBottomOf="@+id/film" />
+
+    <ProgressBar
+        android:id="@+id/zeeProgress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="85dp"
+        android:layout_height="65dp"
+        android:max="25"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/filmProgress"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/zee" />
+
+
+
 </android.support.constraint.ConstraintLayout>

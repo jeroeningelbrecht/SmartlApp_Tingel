@@ -50,6 +50,8 @@ public class StartChildActivity extends AppCompatActivity {
     /** Called when the user taps the split button */
     public void sendMessageSplit(View view) {
         Intent intent = new Intent(this, SplitActivity.class);
+        MyApplication application = (MyApplication)this.getApplication();
+        application.setSign("+");
         startActivity(intent);
     }
 
