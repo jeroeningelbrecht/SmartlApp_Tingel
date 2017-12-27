@@ -13,15 +13,17 @@ public class OperationResponder {
     private static int[] getOperationNumbers(String operationIdentifier){
         
         int[] operationNumbers = new int[2];
-        int operationNumber_1 = new Random().nextInt(Configuration.MAX_NUMBER_ADDITION+1);
-        int operationNumber_2;
+        int operationNumber_1 = 0;
+        int operationNumber_2 = 0;
         
         switch(operationIdentifier) {
             case(Configuration.PLUS_SIGN):
+                operationNumber_1 = new Random().nextInt(Configuration.MAX_NUMBER_ADDITION+1);
                 operationNumber_2 = new Random().nextInt(Configuration.MAX_NUMBER_ADDITION - operationNumber_1 +1);
                 break;
                 
             case(Configuration.MINUS_SIGN):
+                operationNumber_1 = new Random().nextInt(Configuration.MAX_NUMBER_ADDITION+1);
                 //minimum 0; maximum value of operationNumber_1;
                 operationNumber_2 = new Random().nextInt(Configuration.MAX_NUMBER_ADDITION+1);
                 
@@ -33,7 +35,11 @@ public class OperationResponder {
                     operationNumber_2 = help;
                 }
                 break;
-                
+
+            case(Configuration.MULTIPLICATION_SIGN):
+                operationNumber_1 = new Random().nextInt(Configuration.MAX_NUMBER_MULTIPLICATION+1);
+                operationNumber_2 = new Random().nextInt(Configuration.MAX_NUMBER_MULTIPLICATION+1);
+
             default: operationNumber_2 = 0;
         }
         
@@ -75,6 +81,10 @@ public class OperationResponder {
                 
             case(Configuration.MINUS_SIGN):
                 operation = new Subtraction();
+                break;
+
+            case(Configuration.MULTIPLICATION_SIGN):
+                operation = new Multiplication();
                 break;
                 
             default: operation = new Addition();

@@ -16,7 +16,12 @@ public class Configuration {
      * What is the max number for subtractions; e.g. 20
      */
     public static final int MAX_NUMBER_SUBTRACTION = 20;
-    
+
+    /**
+     * What is the max number for multiplication
+     */
+    public static final int MAX_NUMBER_MULTIPLICATION = 11;
+
     /**
      * "+"
      */
@@ -26,5 +31,10 @@ public class Configuration {
      * "-"
      */
     public static final String MINUS_SIGN = "-";
+
+    /**
+     *  "*"
+     */
+    public static final String MULTIPLICATION_SIGN = "*";
     
 }

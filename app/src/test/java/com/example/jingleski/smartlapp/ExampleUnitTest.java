@@ -35,6 +35,19 @@ public class ExampleUnitTest {
     }
 
     @Test
+    public void multiplication_isWrong() throws Exception{
+        Operation multiplication = new Multiplication();
+        Assert.assertFalse(multiplication.process(new int[]{3,4,5},0));
+    }
+
+    @Test
+    public void multiplication_isCorrect() throws Exception{
+        Operation multiplication = new Multiplication();
+        Assert.assertTrue(multiplication.process(new int[]{3,4,5},60));
+    }
+
+
+    @Test
     public void SplitTest() throws Exception{
         for(int i=0;i<10;i++) {
             System.out.println(SplitResponder.handleResponse("+"));
