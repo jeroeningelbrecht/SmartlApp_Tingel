@@ -1,6 +1,9 @@
 package com.example.jingleski.midtier.operations;
 
+import android.util.Log;
+
 import java.util.Random;
+import java.util.logging.Logger;
 
 import com.example.jingleski.midtier.configuration.Configuration;
 
@@ -10,22 +13,24 @@ public class OperationResponder {
     * @param operationIdentifier e.g.: "+" or "-"
     * @return return an int[] containing the factors x,y of the addition or the subtraction
     */
-    private static int[] getOperationNumbers(String operationIdentifier){
-        
+    private static int[] getOperationNumbers(String operationIdentifier, Configuration.Child child){
+
+
+
         int[] operationNumbers = new int[2];
         int operationNumber_1 = 0;
         int operationNumber_2 = 0;
         
         switch(operationIdentifier) {
             case(Configuration.PLUS_SIGN):
-                operationNumber_1 = new Random().nextInt(Configuration.MAX_NUMBER_ADDITION+1);
-                operationNumber_2 = new Random().nextInt(Configuration.MAX_NUMBER_ADDITION - operationNumber_1 +1);
+                operationNumber_1 = new Random().nextInt(child.getMaxNumberAddition()+1);
+                operationNumber_2 = new Random().nextInt(child.getMaxNumberAddition() - operationNumber_1 +1);
                 break;
                 
             case(Configuration.MINUS_SIGN):
-                operationNumber_1 = new Random().nextInt(Configuration.MAX_NUMBER_ADDITION+1);
+                operationNumber_1 = new Random().nextInt(child.getMaxNumberAddition()+1);
                 //minimum 0; maximum value of operationNumber_1;
-                operationNumber_2 = new Random().nextInt(Configuration.MAX_NUMBER_ADDITION+1);
+                operationNumber_2 = new Random().nextInt(child.getMaxNumberAddition()+1);
                 
                 //attention, don't go lower than 0!
                 if( (operationNumber_1 - operationNumber_2) < 0){
@@ -37,8 +42,8 @@ public class OperationResponder {
                 break;
 
             case(Configuration.MULTIPLICATION_SIGN):
-                operationNumber_1 = new Random().nextInt(Configuration.MAX_NUMBER_MULTIPLICATION+1);
-                operationNumber_2 = new Random().nextInt(Configuration.MAX_NUMBER_MULTIPLICATION+1);
+                operationNumber_1 = new Random().nextInt(child.getMaxNumberMultiplication()+1);
+                operationNumber_2 = new Random().nextInt(child.getMaxNumberMultiplication()+1);
 
             default: operationNumber_2 = 0;
         }
@@ -52,10 +57,10 @@ public class OperationResponder {
     /**
      * @param operationIdentifier: identifies the operation: e.g. "+" for addition and "-" for subtraction
      */
-    public static OperationResponse handleResponse(String operationIdentifier) {
+    public static OperationResponse handleResponse(String operationIdentifier, Configuration.Child child) {
         int updatedSequenceNumber = 0;
 
-        int[] factors = getOperationNumbers(operationIdentifier);
+        int[] factors = getOperationNumbers(operationIdentifier,child);
         
         return new OperationResponse(updatedSequenceNumber, factors, false, false);
     }
@@ -69,7 +74,7 @@ public class OperationResponder {
      * 
      * @return OperationResponse
      */
-    public static OperationResponse handleResponse(String operationIdentifier, int sequenceNumber, int x, int y, int solution){
+    public static OperationResponse handleResponse(String operationIdentifier, int sequenceNumber, int x, int y, int solution, Configuration.Child child){
         
         /* result operation ok? */
         Operation operation;
@@ -99,7 +104,7 @@ public class OperationResponder {
         boolean finishIc = updatedSequenceNumber >= Configuration.MAX_SEQUENCES_PER_EXERCISE;
         
         /* new factors */
-        int[] factors = getOperationNumbers(operationIdentifier);     
+        int[] factors = getOperationNumbers(operationIdentifier,child);
         
         /* return new OperationResponse*/
         return new OperationResponse(updatedSequenceNumber, factors, resultOkIc, finishIc);

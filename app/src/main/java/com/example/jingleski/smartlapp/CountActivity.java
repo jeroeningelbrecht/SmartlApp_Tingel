@@ -31,7 +31,7 @@ public class CountActivity extends AppCompatActivity {
      //   imageView.setImageResource(prevResultOkIc ? R.drawable.good : R.drawable.sad);
 
         if (application.getOperationResponse() == null) {
-            OperationResponse responseNew = OperationResponder.handleResponse(sign);
+            OperationResponse responseNew = OperationResponder.handleResponse(sign, application.getCurrentChild());
             application.setResponse(responseNew);
         //    application.setPrevResultOkIc(responseNew.isResultOkIc());
         }
@@ -43,7 +43,7 @@ public class CountActivity extends AppCompatActivity {
             int result = application.getResult();
 
             OperationResponse responseNew =
-                    OperationResponder.handleResponse(sign,sequenceNumber,a,b,result);
+                    OperationResponder.handleResponse(sign,sequenceNumber,a,b,result, application.getCurrentChild());
 
             if (responseNew.isResultOkIc()) {
                 ImageView imageView = (ImageView) findViewById(R.id.resultImg);

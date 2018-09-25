@@ -9,6 +9,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.example.jingleski.authentication.GoogleInteraction;
+import com.example.jingleski.midtier.configuration.Configuration;
 import com.example.jingleski.midtier.operations.OperationResponse;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -46,32 +47,20 @@ public class MyApplication extends Application {
 
     public static final int RC_SIGN_IN = 9001;
 
-    public enum Child {
-        MARIE("Marie"),LAURA("Laura"),RIENE("Riene");
-
-        private String name;
-        private Child(String name) {
-            this.name=name;
-        }
-        public String getName(){
-            return this.name;
-        }
-    };
-
-    private Map<Child, Integer> childrenPoints = new HashMap<>();
+    private Map<Configuration.Child, Integer> childrenPoints = new HashMap<>();
 
 
     private DatabaseReference marieDatebaseReference;
     private DatabaseReference lauraDatebaseReference;
     private DatabaseReference rieneDatebaseReference;
 
-    private Child currentChild;
+    private Configuration.Child currentChild;
 
-    public void setChild(Child child) {
+    public void setChild(Configuration.Child child) {
         this.currentChild = child;
     }
 
-    public Child getCurrentChild(){
+    public Configuration.Child getCurrentChild(){
         return this.currentChild;
     }
 
@@ -99,7 +88,7 @@ public class MyApplication extends Application {
      * @param child MyApplication.Child object e.g.: MyApplication.Child.MARIE
      * @return the points of that particular child
      */
-    public int getChildPoints(Child child){
+    public int getChildPoints(Configuration.Child child){
         return this.childrenPoints.get(child);
     }
 
@@ -156,11 +145,11 @@ public class MyApplication extends Application {
         });
     }
 
-    private void setChildPoints(Child child, int points){
+    private void setChildPoints(Configuration.Child child, int points){
         this.childrenPoints.put(child, points);
     }
 
-    private ValueEventListener getChildValueEventListener(final Context context, final Child child) {
+    private ValueEventListener getChildValueEventListener(final Context context, final Configuration.Child child) {
         ValueEventListener listener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -185,22 +174,22 @@ public class MyApplication extends Application {
      */
     public void readData(final Context context){
         if(null == marieDatebaseReference) {
-            marieDatebaseReference = FirebaseDatabase.getInstance().getReference().child("points").child(firebaseAuth.getCurrentUser().getUid()).child(Child.MARIE.getName());
-            marieDatebaseReference.addValueEventListener(getChildValueEventListener(context, Child.MARIE));
+            marieDatebaseReference = FirebaseDatabase.getInstance().getReference().child("points").child(firebaseAuth.getCurrentUser().getUid()).child(Configuration.Child.MARIE.getName());
+            marieDatebaseReference.addValueEventListener(getChildValueEventListener(context, Configuration.Child.MARIE));
         }
 
         if(null == lauraDatebaseReference) {
-            lauraDatebaseReference = FirebaseDatabase.getInstance().getReference().child("points").child(firebaseAuth.getCurrentUser().getUid()).child(Child.LAURA.getName());
-            lauraDatebaseReference.addValueEventListener(getChildValueEventListener(context, Child.LAURA));
+            lauraDatebaseReference = FirebaseDatabase.getInstance().getReference().child("points").child(firebaseAuth.getCurrentUser().getUid()).child(Configuration.Child.LAURA.getName());
+            lauraDatebaseReference.addValueEventListener(getChildValueEventListener(context, Configuration.Child.LAURA));
         }
 
         if(null == rieneDatebaseReference) {
-            rieneDatebaseReference = FirebaseDatabase.getInstance().getReference().child("points").child(firebaseAuth.getCurrentUser().getUid()).child(Child.RIENE.getName());
-            rieneDatebaseReference.addValueEventListener(getChildValueEventListener(context, Child.RIENE));
+            rieneDatebaseReference = FirebaseDatabase.getInstance().getReference().child("points").child(firebaseAuth.getCurrentUser().getUid()).child(Configuration.Child.RIENE.getName());
+            rieneDatebaseReference.addValueEventListener(getChildValueEventListener(context, Configuration.Child.RIENE));
         }
     }
 
-    public void updateChildPoints(Child child, int addPointsNumber) {
+    public void updateChildPoints(Configuration.Child child, int addPointsNumber) {
         int currentPoints = this.childrenPoints.get(child);
 
         int newTotalPoints = addPointsNumber+currentPoints;

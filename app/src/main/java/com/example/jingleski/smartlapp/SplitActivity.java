@@ -23,7 +23,7 @@ public class SplitActivity extends AppCompatActivity {
         String sign = application.getSign().toString();
 
         if (application.getOperationResponse() == null) {
-            OperationResponse responseNew = SplitResponder.handleResponse(sign);
+            OperationResponse responseNew = SplitResponder.handleResponse(sign, application.getCurrentChild());
             application.setResponse(responseNew);
         } else {
             OperationResponse response = application.getOperationResponse();
@@ -37,7 +37,7 @@ public class SplitActivity extends AppCompatActivity {
             //here: handleResponse(sign, sequenceNumber, response.getFactors()[1], result, response.getFactors()[0] ) because
             //response.getFactors()[0] is the result of the operation
             OperationResponse responseNew =
-                    SplitResponder.handleResponse(sign, sequenceNumber, factor1, factor2, splitResult);
+                    SplitResponder.handleResponse(sign, sequenceNumber, factor1, factor2, splitResult, application.getCurrentChild());
 
             if (responseNew.isResultOkIc()) {
                 ImageView imageView = (ImageView) findViewById(R.id.resultImg);

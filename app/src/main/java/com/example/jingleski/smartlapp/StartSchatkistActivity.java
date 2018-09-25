@@ -4,10 +4,10 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import com.example.jingleski.midtier.configuration.Configuration;
 
 public class StartSchatkistActivity extends AppCompatActivity {
 
@@ -17,9 +17,9 @@ public class StartSchatkistActivity extends AppCompatActivity {
         setContentView(R.layout.activity_start_schatkist);
 
         MyApplication application = (MyApplication)getApplication();
-        int puntenRiene = application.getChildPoints(MyApplication.Child.RIENE);
-        int puntenLaura = application.getChildPoints(MyApplication.Child.LAURA);
-        int puntenMarie = application.getChildPoints(MyApplication.Child.MARIE);
+        int puntenRiene = application.getChildPoints(Configuration.Child.RIENE);
+        int puntenLaura = application.getChildPoints(Configuration.Child.LAURA);
+        int puntenMarie = application.getChildPoints(Configuration.Child.MARIE);
 
         int resultRiene = puntenRiene;
         TextView rienePunten = (TextView) findViewById(R.id.rienePunten);
@@ -53,7 +53,7 @@ public class StartSchatkistActivity extends AppCompatActivity {
         //   Button startLaura = (Button) findViewById(R.id.startLaura);
         //   String message = startLaura.getContentDescription().toString();
         MyApplication application = (MyApplication) this.getApplication();
-        application.setChild((MyApplication.Child.LAURA));
+        application.setChild((Configuration.Child.LAURA));
         startActivity(intent);
 
     }
@@ -63,7 +63,7 @@ public class StartSchatkistActivity extends AppCompatActivity {
         //   Button startRiene = (Button) findViewById(R.id.startRiene);
         //   String message = startRiene.getContentDescription().toString();
         MyApplication application = (MyApplication) this.getApplication();
-        application.setChild(MyApplication.Child.RIENE);
+        application.setChild(Configuration.Child.RIENE);
         startActivity(intent);
     }
     /** Called when the user taps the Marie button */
@@ -72,7 +72,7 @@ public class StartSchatkistActivity extends AppCompatActivity {
         //   Button startMarie = (Button) findViewById(R.id.startMarie);
         //    String message = startMarie.getContentDescription().toString();
         MyApplication application = (MyApplication) this.getApplication();
-        application.setChild(MyApplication.Child.MARIE);
+        application.setChild(Configuration.Child.MARIE);
         startActivity(intent);
     }
 }

@@ -11,10 +11,10 @@ public class SplitResponder{
     * @param operationIdentifier e.g.: "+" or "-"
     * @return return an int[] containing the factors x,y of the addition or the subtraction
     */
-    private static int[] getOperationNumbers(String operationIdentifier){
+    private static int[] getOperationNumbers(String operationIdentifier, Configuration.Child child){
         
         int[] operationNumbers = new int[2];
-        int operationNumber_1 = new Random().nextInt(Configuration.MAX_NUMBER_ADDITION+1);
+        int operationNumber_1 = new Random().nextInt(child.getMaxNumberAddition()+1);
         int operationNumber_2;
         
         switch(operationIdentifier) {
@@ -44,9 +44,9 @@ public class SplitResponder{
      * handle a splitrequest/response but with only giving the operationidentifier
      * @param operationIdentifier: identifies the operation: e.g. "+" for addition and "-" for subtraction
      */
-    public static OperationResponse handleResponse(String operationIdentifier) {
+    public static OperationResponse handleResponse(String operationIdentifier, Configuration.Child child) {
         int updatedSequenceNumber = 0;
-        int[] factors = getOperationNumbers(operationIdentifier);
+        int[] factors = getOperationNumbers(operationIdentifier, child);
         
         return new SplitResponse(updatedSequenceNumber,factors,false,false);
     }
@@ -60,7 +60,7 @@ public class SplitResponder{
      * @param solution
      * @return
      */
-    public static OperationResponse handleResponse(String operationIdentifier, int sequenceNumber, int x, int y, int solution){
+    public static OperationResponse handleResponse(String operationIdentifier, int sequenceNumber, int x, int y, int solution, Configuration.Child child){
         /* result operation ok? */
         Operation operation;
 
@@ -85,7 +85,7 @@ public class SplitResponder{
         boolean finishIc = updatedSequenceNumber >= Configuration.MAX_SEQUENCES_PER_EXERCISE;
 
         /* new factors */
-        int[] factors = getOperationNumbers(operationIdentifier);
+        int[] factors = getOperationNumbers(operationIdentifier, child);
 
         /* return new OperationResponse*/
         return new OperationResponse(updatedSequenceNumber, factors, resultOkIc, finishIc);

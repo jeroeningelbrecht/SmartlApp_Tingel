@@ -6,21 +6,6 @@ public class Configuration {
      * for example max 10 sequences per addition exercise
      */
     public static final int MAX_SEQUENCES_PER_EXERCISE = 10;
-    
-    /**
-     * What is the max number for additions?  E.g.: 20
-     */
-    public static final int MAX_NUMBER_ADDITION = 20;
-    
-    /**
-     * What is the max number for subtractions; e.g. 20
-     */
-    public static final int MAX_NUMBER_SUBTRACTION = 20;
-
-    /**
-     * What is the max number for multiplication
-     */
-    public static final int MAX_NUMBER_MULTIPLICATION = 11;
 
     /**
      * "+"
@@ -36,5 +21,36 @@ public class Configuration {
      *  "*"
      */
     public static final String MULTIPLICATION_SIGN = "*";
-    
+
+    public enum Child {
+        MARIE("Marie",10,10,2),LAURA("Laura",100,100,11),RIENE("Riene",100,100,11);
+
+        private String name;
+        private int maxNumberAddition;          //what is the max number for additions?  E.g.: 20
+        private int maxNumberSubtraction;       //what is the max number for subtractions; e.g. 20
+        private int maxNumberMultiplication;    //what is the max number for multiplication
+
+        Child(String name, int maxNumberAddition, int maxNumberSubtraction, int maxNumberMultiplication) {
+            this.name=name;
+            this.maxNumberAddition = maxNumberAddition;
+            this.maxNumberSubtraction = maxNumberSubtraction;
+            this.maxNumberMultiplication= maxNumberMultiplication;
+        }
+        public String getName(){
+            return this.name;
+        }
+        public int getMaxNumberAddition() {
+            return maxNumberAddition;
+        }
+        public int getMaxNumberSubtraction() {
+            return maxNumberSubtraction;
+        }
+        public int getMaxNumberMultiplication() {
+            return maxNumberMultiplication;
+        }
+
+        public String toString(){
+            return this.name;
+        }
+    }
 }
